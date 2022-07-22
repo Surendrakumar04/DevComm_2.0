@@ -4,11 +4,11 @@ const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 const auth = require('./routes/api/auth');
-
+const cors = require('cors');
 
 const app = express();
 // initliaze middleware)
-
+app.use(cors());
 app.use(express.json({ extended: false }));
 
 app.get('/', (req, res) => res.send('Hello World'));

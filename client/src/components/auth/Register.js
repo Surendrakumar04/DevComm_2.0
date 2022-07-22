@@ -26,18 +26,10 @@ const Register = () => {
         email,
         password
       }
-      const config = {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-      try {
-        const body = JSON.stringify(newUser);
-        const res = await axios.post('http://localhost:5000/api/user', body, config);
-        console.log(res.data);
-      } catch (err) {
-        console.error(err.response.data);
-      }
+
+      await axios.post('http://localhost:5000/api/users', newUser)
+        .then(res => console.log(res.data))
+        .catch(err => console.error(err.response.data));
     }
   }
 
